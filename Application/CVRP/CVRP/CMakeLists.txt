@@ -16,7 +16,7 @@ set(ENV{XGB_HOME} ./../../../Dependency/xgboost)
 set(ENV{CVRPSEP_HOME} ./../../../Dependency/cvrpsep)
 set(ENV{EIGEN_HOME} ./../../../Dependency/eigen-3.4.0)
 #set(ENV{DELUXING_HOME} ./../../../Dependency/deLuxing)
-set(ENV{HGS_HOME} ./../../../Dependency/hgs)
+#set(ENV{HGS_HOME} ./../../../Dependency/hgs)
 
 
 if(NOT CMAKE_BUILD_TYPE)
