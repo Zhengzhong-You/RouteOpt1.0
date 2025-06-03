@@ -13,10 +13,9 @@ set(Boost_ROOT "/home/yzz/boost_1_83_0")
 set(Boost_LIBRARY_DIR "/home/yzz/boost_1_83_0/stage/lib")
 
 set(ENV{XGB_HOME} ./../../../Dependency/xgboost)
+set(ENV{GUROBI_HOME} "/home/yzz/gurobi1101/linux64")
 set(ENV{CVRPSEP_HOME} ./../../../Dependency/cvrpsep)
 set(ENV{EIGEN_HOME} ./../../../Dependency/eigen-3.4.0)
-#set(ENV{DELUXING_HOME} ./../../../Dependency/deLuxing)
-#set(ENV{HGS_HOME} ./../../../Dependency/hgs)
 
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -31,17 +30,13 @@ find_package(Boost REQUIRED)
 find_package(GUROBI REQUIRED)
 find_package(XGB REQUIRED)
 find_package(CVRPSEP REQUIRED)
-#find_package(DELUXING REQUIRED)
-find_package(HGS REQUIRED)
 
 include_directories(
         ${Boost_INCLUDE_DIRS}
         ${GUROBI_INCLUDE_DIRS}
         ${XGB_INCLUDE_DIRS}
         ${CVRPSEP_INCLUDE_DIRS}
-#        ${DELUXING_INCLUDE_DIRS}
         $ENV{EIGEN_HOME}
-        ${HGS_INCLUDE_DIRS}
 )
 
 # Automatically add all subdirectories containing header files
@@ -60,10 +55,8 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_link_libraries(${CMAKE_PROJECT_NAME}
         ${GUROBI_LIBRARIES}
         ${Boost_MATH_LIBRARY}
-      #  ${DELUXING_LIBRARIES}
 	${XGB_LIBRARIES}
        ${CVRPSEP_LIBRARIES}
-${HGS_LIBRARIES}
 stdc++fs
 OpenMP::OpenMP_CXX
         )
