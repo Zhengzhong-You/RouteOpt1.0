@@ -14,6 +14,7 @@ set(Boost_LIBRARY_DIR "/home/yzz/boost_1_83_0/stage/lib")
 
 set(ENV{XGB_HOME} ./../../../Dependency/xgb)
 set(ENV{GUROBI_HOME} "/home/yzz/gurobi1101/linux64")
+set(ENV{CPLEX_HOME} "/home/yzz/opt/ibm/ILOG/CPLEX_Studio221")
 set(ENV{CVRPSEP_HOME} ./../../../Dependency/cvrpsep)
 set(ENV{EIGEN_HOME} ./../../../Dependency/eigen-3.4.0)
 
@@ -26,6 +27,7 @@ message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/package)
+find_package(CPLEX REQUIRED)
 find_package(Boost REQUIRED)
 find_package(GUROBI REQUIRED)
 find_package(XGB REQUIRED)
@@ -34,6 +36,7 @@ find_package(CVRPSEP REQUIRED)
 include_directories(
         ${Boost_INCLUDE_DIRS}
         ${GUROBI_INCLUDE_DIRS}
+	${CPLEX_INCLUDE_DIRS}
         ${XGB_INCLUDE_DIRS}
         ${CVRPSEP_INCLUDE_DIRS}
         $ENV{EIGEN_HOME}
@@ -53,12 +56,14 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
+        ${CPLEX_LIBRARIES}
         ${GUROBI_LIBRARIES}
         ${Boost_MATH_LIBRARY}
 	${XGB_LIBRARIES}
        ${CVRPSEP_LIBRARIES}
 stdc++fs
 OpenMP::OpenMP_CXX
+dl
         )
 
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
