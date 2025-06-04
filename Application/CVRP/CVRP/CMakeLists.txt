@@ -12,7 +12,7 @@ endif()
 set(Boost_ROOT "/home/yzz/boost_1_83_0")
 set(Boost_LIBRARY_DIR "/home/yzz/boost_1_83_0/stage/lib")
 
-set(ENV{XGB_HOME} ./../../../Dependency/xgboost)
+set(ENV{XGB_HOME} ./../../../Dependency/xgb)
 set(ENV{GUROBI_HOME} "/home/yzz/gurobi1101/linux64")
 set(ENV{CVRPSEP_HOME} ./../../../Dependency/cvrpsep)
 set(ENV{EIGEN_HOME} ./../../../Dependency/eigen-3.4.0)
