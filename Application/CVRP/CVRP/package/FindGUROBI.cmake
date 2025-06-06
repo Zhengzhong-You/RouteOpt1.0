@@ -4,7 +4,7 @@ find_path(GUROBI_INCLUDE_DIR
         "$ENV{GUROBI_HOME}/include")
 
 find_library( GUROBI_LIBRARY
-        NAMES libgurobi110.so
+        NAMES libgurobi100.so
         PATHS "$ENV{GUROBI_HOME}/lib"
         )
 
